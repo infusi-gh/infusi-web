@@ -23,8 +23,8 @@ export function Navbar() {
   ]
 
   return (
-    <nav className="w-full bg-white/90 backdrop-blur-sm border-b border-gray-100 z-50">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+    <nav className="absolute section-padding top-0 w-full bg-white/90 backdrop-blur-sm border-b border-gray-100 z-50">
+      <div className=" flex items-center justify-between  py-3">
         {/* --- Logo Section --- */}
         <div className="flex-[0.3]">
           <Link href="/" className="flex items-center gap-2  ">
@@ -41,7 +41,7 @@ export function Navbar() {
 
         {/* --- Desktop Nav --- */}
         <div className="hidden md:flex items-center w-full gap-8 flex-[0.7] justify-between">
-          <ul className="flex gap-10">
+          <ul className="flex gap-10 text">
             {navItems.map(item => {
               const isActive = pathname === item.href // ✅ check if active
 

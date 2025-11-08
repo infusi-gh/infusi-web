@@ -6,6 +6,7 @@ import {
   Sheet,
   SheetContent,
   SheetHeader,
+  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
@@ -68,13 +69,19 @@ export function Navbar() {
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <Menu className="h-6 w-6 text-blue-900" />
+              <Button variant="ghost" size="icon" className="hover:bg-blue-50">
+                <Menu className="h-6 w-6 text-blue-900" />
+              </Button>
             </SheetTrigger>
 
-            <SheetContent side="right" className="w-[80%] sm:w-[60%] bg-white">
-              <SheetHeader>
-                <Link href="/" className="flex items-center gap-2  ">
-                  {/* Standard logo size: 32–40px tall */}
+            <SheetContent
+              side="right"
+              className="w-[80%] sm:w-[60%] bg-white h-full flex flex-col justify-between p-6"
+            >
+              {/* Header / Logo */}
+              <SheetHeader className="w-fit h-fit">
+                <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+                <Link href="/" className="flex items-center gap-2 ">
                   <Image
                     src="/logo.svg"
                     alt="Infusi LLC"
@@ -84,10 +91,12 @@ export function Navbar() {
                   />
                 </Link>
               </SheetHeader>
-              <div className="flex flex-col items-start gap-6 mt-8">
+
+              {/* Navigation Links */}
+              <div className="flex-1 overflow-y-auto mt-8">
                 <ul className="flex flex-col items-start gap-6">
                   {navItems.map(item => {
-                    const isActive = pathname === item.href // ✅ check if active
+                    const isActive = pathname === item.href
 
                     return (
                       <li key={item.name}>
@@ -95,7 +104,7 @@ export function Navbar() {
                           href={item.href}
                           className={`transition-colors ${
                             isActive
-                              ? "font-semibold text-blue-800" // active link
+                              ? "font-semibold text-blue-800"
                               : "font-normal text-[#27408E] hover:text-blue-700"
                           }`}
                         >
@@ -105,6 +114,9 @@ export function Navbar() {
                     )
                   })}
                 </ul>
+              </div>
+
+              <div className="pt-6 border-t border-gray-200">
                 <Button className="bg-blue-700 hover:bg-blue-800 text-white w-full">
                   Get Started
                 </Button>

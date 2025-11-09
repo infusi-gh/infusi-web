@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-satoshi)", "system-ui", "sans-serif"],
+      },
       colors: {
         border: "var(--border)",
         input: "var(--border)",

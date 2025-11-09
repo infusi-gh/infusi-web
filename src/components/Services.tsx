@@ -1,39 +1,44 @@
 import React from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { Button } from "./ui/button"
 
 const servicesData = [
   {
     id: 1,
-    title: "Lorem ipsum",
+    title: "Website Development",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Nunc adipiscing tempus mollis porttitor sem augue sem. Tortor erat orci odio interdum. Tempor nullam nullam aenean.",
+      "Build powerful, responsive websites that engage your audience and drive growth. From custom designs to seamless functionality, we create web experiences that work.",
     imageSrc: "/service-assets/service1.png",
-    imageAlt: "Service 1",
+    imageAlt: "Website Development",
+    href: "/services/website-development",
   },
   {
     id: 2,
-    title: "Lorem ipsum dolor sit amet",
+    title: "Software Development",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Sapien auctor dui massa tincidunt pretium. Sit enim id cras sit euismod.",
+      "Transform your business with custom software solutions. From MVPs to enterprise systems, we deliver scalable applications that solve real problems.",
     imageSrc: "/service-assets/service2.png",
-    imageAlt: "Service 2",
+    imageAlt: "Software Development",
+    href: "/services/software-development",
   },
   {
     id: 3,
-    title: "Lorem ipsum",
+    title: "UI/UX Design",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Pellentesque fermentum tempus fermentum vestibulum feugiat. Ut.",
+      "Create beautiful, intuitive interfaces that users love. Our design approach combines aesthetics with usability to deliver exceptional digital experiences.",
     imageSrc: "/service-assets/service3.png",
-    imageAlt: "Service 3",
+    imageAlt: "UI/UX Design",
+    href: "/services/ui-ux-design",
   },
   {
     id: 4,
-    title: "Lorem ipsum",
+    title: "IT Consultancy",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Vel diam rhoncus facilisis lorem.",
+      "Get expert guidance to navigate your digital transformation. We help businesses make informed technology decisions that drive success.",
     imageSrc: "/service-assets/service4.png",
-    imageAlt: "Service 4",
+    imageAlt: "IT Consultancy",
+    href: "/services/it-consultancy",
   },
 ]
 
@@ -93,9 +98,11 @@ function Services() {
                     <p className="text-white/90 md:mb-8 mb-6 leading-relaxed max-w-[480px] text-base md:text-xl">
                       {service.description}
                     </p>
-                    <Button className="bg-[#4169FF] hover:bg-[#3057E8] text-white px-6 py-2.5 rounded-md text-sm font-medium">
-                      Learn more
-                    </Button>
+                    <Link href={service.href}>
+                      <Button className="bg-[#4169FF] hover:bg-[#3057E8] text-white px-6 py-2.5 rounded-md text-sm font-medium">
+                        Learn more
+                      </Button>
+                    </Link>
                   </div>
                 </div>
 

@@ -60,11 +60,11 @@ function Partners() {
             ))}
           </div>
           {/* Bottom row - 2 logos centered */}
-          <div className="grid grid-cols-2 gap-8 md:gap-12 items-center justify-items-center">
+          <div className="grid grid-cols-2 gap-8 md:gap-12 items-center justify-items-center w-full max-w-md">
             {partnersData.slice(4, 6).map(partner => (
               <div
                 key={partner.name}
-                className="relative h-12 md:h-16 w-full max-w-[200px] flex items-center justify-center"
+                className="relative h-16 md:h-20 w-full flex items-center justify-center"
               >
                 <Image
                   src={partner.logo}

@@ -9,22 +9,35 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import { Menu } from "lucide-react"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { Menu, ChevronDown } from "lucide-react"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 
 export function Navbar() {
   const pathname = usePathname()
   const navItems = [
-    { name: "Home", href: "/" },
-    { name: "Features", href: "/features" },
     { name: "Solutions", href: "/solutions" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ]
 
+  const resourceItems = [
+    { name: "Blog", href: "/resources/blog" },
+    { name: "Case Studies", href: "/resources/case-studies" },
+    { name: "Industries", href: "/resources/industries" },
+    { name: "The Lab", href: "/the-lab" },
+    { name: "FAQ", href: "/resources/faq" },
+    { name: "Careers", href: "/resources/careers" },
+  ]
+
   return (
-    <nav className="absolute section-padding top-0 w-full bg-white/90 backdrop-blur-sm border-b border-gray-100 z-50">
+    <nav className="absolute section-padding top-0 w-full bg-[#EBF2FF]/95 backdrop-blur-sm border-b border-[#27408E]/10 z-50">
       <div className=" flex items-center justify-between  py-3">
         {/* --- Logo Section --- */}
         <div className="flex-[0.3]">
@@ -42,9 +55,9 @@ export function Navbar() {
 
         {/* --- Desktop Nav --- */}
         <div className="hidden md:flex items-center w-full gap-8 flex-[0.7] justify-between">
-          <ul className="flex gap-10 text">
+          <ul className="flex gap-10 text items-center">
             {navItems.map(item => {
-              const isActive = pathname === item.href // ✅ check if active
+              const isActive = pathname === item.href
 
               return (
                 <li key={item.name}>
@@ -52,7 +65,7 @@ export function Navbar() {
                     href={item.href}
                     className={`transition-colors ${
                       isActive
-                        ? "font-semibold text-blue-800" // active link
+                        ? "font-semibold text-blue-800"
                         : "font-normal text-[#27408E] hover:text-blue-700"
                     }`}
                   >
@@ -61,6 +74,36 @@ export function Navbar() {
                 </li>
               )
             })}
+            <li>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <button className="flex items-center gap-1 font-normal text-[#27408E] hover:text-blue-700 transition-colors outline-none">
+                    Resources
+                    <ChevronDown className="h-4 w-4 transition-transform duration-300" />
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent
+                  align="start"
+                  sideOffset={16}
+                  className="w-56 bg-[#EBF2FF]/95 backdrop-blur-sm border-none shadow-none rounded-none p-0 border-t border-[#27408E]/10"
+                >
+                  {resourceItems.map(item => (
+                    <DropdownMenuItem
+                      key={item.name}
+                      asChild
+                      className="focus:bg-white/40 focus:text-[#27408E] cursor-pointer rounded-none border-none outline-none"
+                    >
+                      <Link
+                        href={item.href}
+                        className="px-4 py-3 text-[#27408E] hover:bg-white/40 transition-all duration-150 block"
+                      >
+                        <span className="text-sm font-normal">{item.name}</span>
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </li>
           </ul>
           <Button>Get Started</Button>
         </div>
@@ -113,6 +156,23 @@ export function Navbar() {
                       </li>
                     )
                   })}
+                  <li>
+                    <div className="font-semibold text-[#27408E] mb-2">
+                      Resources
+                    </div>
+                    <ul className="ml-4 flex flex-col gap-3">
+                      {resourceItems.map(item => (
+                        <li key={item.name}>
+                          <Link
+                            href={item.href}
+                            className="text-sm font-normal text-[#27408E] hover:text-blue-700 transition-colors"
+                          >
+                            {item.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
                 </ul>
               </div>
 

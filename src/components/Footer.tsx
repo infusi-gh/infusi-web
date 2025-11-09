@@ -34,10 +34,7 @@ function Footer() {
             <h3 className="font-semibold text-lg">Home</h3>
             <ul className="space-y-3 text-gray-300 text-sm">
               <li>
-                <Link href="/">Home</Link>
-              </li>
-              <li>
-                <Link href="/services">Services</Link>
+                <Link href="/solutions">Solutions</Link>
               </li>
               <li>
                 <Link href="/case-studies">Case Studies</Link>
@@ -46,7 +43,7 @@ function Footer() {
                 <Link href="/industries">Industries</Link>
               </li>
               <li>
-                <Link href="/lab">The Lab</Link>
+                <Link href="/the-lab">The Lab</Link>
               </li>
             </ul>
           </div>
@@ -54,30 +51,114 @@ function Footer() {
           <div className="space-y-6">
             <h3 className="font-semibold text-lg">Services</h3>
             <ul className="space-y-3 text-gray-300 text-sm">
-              <li>Website Development</li>
-              <li>Software Development</li>
-              <li>UI/UX Design</li>
-              <li>IT Consultancy</li>
+              <li>
+                <Link
+                  href="/services/website-development"
+                  className="hover:text-white transition-colors"
+                >
+                  Website Development
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/software-development"
+                  className="hover:text-white transition-colors"
+                >
+                  Software Development
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/ui-ux-design"
+                  className="hover:text-white transition-colors"
+                >
+                  UI/UX Design
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/it-consultancy"
+                  className="hover:text-white transition-colors"
+                >
+                  IT Consultancy
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div className="space-y-6">
             <h3 className="font-semibold text-lg">Infusi</h3>
             <ul className="space-y-3 text-gray-300 text-sm">
-              <li>Support</li>
-              <li>Book an appointment</li>
-              <li>About Us</li>
-              <li>Links</li>
-              <li>Blog</li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="hover:text-white transition-colors"
+                >
+                  Book an Appointment
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  className="hover:text-white transition-colors"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/resources/careers"
+                  className="hover:text-white transition-colors"
+                >
+                  Careers
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/resources/faq"
+                  className="hover:text-white transition-colors"
+                >
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/resources/blog"
+                  className="hover:text-white transition-colors"
+                >
+                  Blog
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div className="space-y-6">
             <h3 className="font-semibold text-lg">Company</h3>
             <ul className="space-y-3 text-gray-300 text-sm">
-              <li>Privacy Policy</li>
-              <li>Terms</li>
-              <li>Get in touch</li>
+              <li>
+                <Link
+                  href="/privacy-policy"
+                  className="hover:text-white transition-colors"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/terms"
+                  className="hover:text-white transition-colors"
+                >
+                  Terms
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="hover:text-white transition-colors"
+                >
+                  Get in Touch
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

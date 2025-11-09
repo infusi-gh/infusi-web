@@ -66,14 +66,15 @@ function Hero() {
         </div>
 
         {/* --- Image Section --- */}
-        <div className="max-md:hidden flex justify-center md:justify-end w-full md:w-[90%] z-50 lg:w-[90%] pt-12 md:pt-28 relative h-full">
-          <div className=" relative -left-40 w-[1000px] sm:w-[75%] md:w-[1200px]   scale-x-[-1]">
+        <div className="hidden md:block absolute md:right-[-250px] lg:right-0 xl:right-8 bottom-0 z-50">
+          <div className="relative md:w-[850px] lg:w-[1000px] xl:w-[1100px] scale-x-[-1]">
             <Image
               src="/hero-assets/hero-image.png"
               alt="Infusi LLC"
-              width={600}
-              height={600}
-              className=" w-full  h-full"
+              width={1100}
+              height={1100}
+              className="w-full h-auto object-contain"
+              priority
             />
           </div>
         </div>

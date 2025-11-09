@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+/* Satoshi font is loaded via Next.js localFont */
 
 @plugin "tailwindcss-animate";
 @import "tailwindcss";
@@ -18,7 +18,7 @@
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: #ffffff;
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --background: #ebf2ff;
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -54,7 +54,7 @@ html[data-theme="inline"] {
   --color-border: var(--border);
   --color-accent: var(--accent);
   --color-destructive: var(--destructive);
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-satoshi), system-ui, -apple-system, sans-serif;
 
   /* Typography Scale */
   --font-size-title: 2.5rem;
@@ -87,7 +87,7 @@ body {
   line-height: 1.6;
 }
 
-/* h1 {
+h1 {
   font-size: var(--font-size-title);
   font-weight: 700;
   line-height: 1.2;
@@ -103,7 +103,7 @@ h3 {
   font-size: var(--font-size-subheading);
   font-weight: 500;
   line-height: 1.4;
-} */
+}
 
 .text-secondary {
   color: var(--foreground-secondary);

@@ -1,6 +1,6 @@
 import Hero from "@/components/Hero"
-import Services from "@/components/Services"
-import Partners from "@/components/Partners"
+import Services from "@/components/service/Services"
+import Partners from "@/components/service/Partners"
 import React from "react"
 
 export default function Home() {

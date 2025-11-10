@@ -1,8 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
 import React from "react"
-import { Input } from "./ui/input"
-import { Button } from "./ui/button"
+import { Input } from "../ui/input"
+import { Button } from "../ui/button"
 import { ArrowUpRight } from "lucide-react"
 
 function Footer() {

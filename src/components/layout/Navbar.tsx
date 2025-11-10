@@ -18,9 +18,11 @@ import {
 import { Menu, ChevronDown } from "lucide-react"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
+import { useState } from "react"
 
 export function Navbar() {
   const pathname = usePathname()
+  const [isResourcesOpen, setIsResourcesOpen] = useState(false)
   const navItems = [
     { name: "Solutions", href: "/solutions" },
     { name: "About", href: "/about" },
@@ -157,21 +159,31 @@ export function Navbar() {
                     )
                   })}
                   <li>
-                    <div className="font-semibold text-[#27408E] mb-2">
+                    <button
+                      onClick={() => setIsResourcesOpen(!isResourcesOpen)}
+                      className="flex items-center gap-2 font-normal text-[#27408E] hover:text-blue-700 transition-colors outline-none"
+                    >
                       Resources
-                    </div>
-                    <ul className="ml-4 flex flex-col gap-3">
-                      {resourceItems.map(item => (
-                        <li key={item.name}>
-                          <Link
-                            href={item.href}
-                            className="text-sm font-normal text-[#27408E] hover:text-blue-700 transition-colors"
-                          >
-                            {item.name}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
+                      <ChevronDown
+                        className={`h-4 w-4 transition-transform duration-300 ${
+                          isResourcesOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                    {isResourcesOpen && (
+                      <ul className="ml-4 flex flex-col gap-3 mt-3 animate-in slide-in-from-top-2 duration-300">
+                        {resourceItems.map(item => (
+                          <li key={item.name}>
+                            <Link
+                              href={item.href}
+                              className="text-sm font-normal text-[#27408E] hover:text-blue-700 transition-colors"
+                            >
+                              {item.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </li>
                 </ul>
               </div>

@@ -15,7 +15,7 @@ export default function NotFound() {
         className="max-w-md"
       >
         <Image
-          src="/404.svg"
+          src="/404-error.svg"
           alt="Page not found"
           width={300}
           height={300}

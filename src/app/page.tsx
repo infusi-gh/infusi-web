@@ -1,4 +1,4 @@
-import Hero from "@/components/Hero"
+import Hero from "@/components/shared/Hero"
 import Services from "@/components/service/Services"
 import Partners from "@/components/service/Partners"
 import React from "react"

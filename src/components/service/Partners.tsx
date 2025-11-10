@@ -2,12 +2,12 @@ import React from "react"
 import Image from "next/image"
 
 const partnersData = [
-  { name: "MTN", logo: "/partner-assets/mtn.svg" },
-  { name: "Telecel", logo: "/partner-assets/telecel.svg" },
-  { name: "Paystack", logo: "/partner-assets/paystack.svg" },
-  { name: "Brif", logo: "/partner-assets/brif.svg" },
-  { name: "Døltech", logo: "/partner-assets/doltech.svg" },
-  { name: "Kweku Tech", logo: "/partner-assets/kweku.svg" },
+  { name: "MTN", logo: "/partner/mtn.svg" },
+  { name: "Telecel", logo: "/partner/telecel.svg" },
+  { name: "Paystack", logo: "/partner/paystack.svg" },
+  { name: "Brif", logo: "/partner/brif.svg" },
+  { name: "Døltech", logo: "/partner/doltech.svg" },
+  { name: "Kweku Tech", logo: "/partner/kweku.svg" },
 ]
 
 function Partners() {

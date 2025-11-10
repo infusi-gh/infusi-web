@@ -1,16 +1,16 @@
 import React from "react"
-import { Button } from "./ui/button"
+import { Button } from "../ui/button"
 import Image from "next/image"
-import { Avatar, AvatarImage } from "./ui/avatar"
+import { Avatar, AvatarImage } from "../ui/avatar"
 
 function Hero() {
   return (
     <main className="relative bg-[#0D193E] text-white min-h-[95vh] w-full flex justify-center    overflow-hidden ">
       <div className="absolute -top-10 h-full inset-0 z-0 overflow-hidden ">
-        <Image src="/hero-assets/vector-1.svg" alt="Background curve" fill />
+        <Image src="/hero/vector-1.svg" alt="Background curve" fill />
       </div>
       <div className="absolute top-30 h-full inset-1 z-0 overflow-hidden ">
-        <Image src="/hero-assets/vector-2.svg" alt="Background curve" fill />
+        <Image src="/hero/vector-2.svg" alt="Background curve" fill />
       </div>
       <div className="section-padding w-full  flex  md:flex-row items-center md:justify-between justify-center  gap-10 px-6 sm:px-10 md:px-16 lg:px-24 z-10 ">
         {/* --- Text Section --- */}
@@ -46,16 +46,16 @@ function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 items-center justify-center md:justify-start pb-5">
               <div className="flex -space-x-2 *:data-[slot=avatar]:ring-background *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:grayscale">
                 <Avatar>
-                  <AvatarImage src="/hero-assets/client-1.jpg" alt="client 1" />
+                  <AvatarImage src="/hero/client-1.jpg" alt="client 1" />
                 </Avatar>
                 <Avatar>
-                  <AvatarImage src="/hero-assets/client-2.jpg" alt="client 2" />
+                  <AvatarImage src="/hero/client-2.jpg" alt="client 2" />
                 </Avatar>
                 <Avatar>
-                  <AvatarImage src="/hero-assets/client-3.jpg" alt="client 3" />
+                  <AvatarImage src="/hero/client-3.jpg" alt="client 3" />
                 </Avatar>
                 <Avatar>
-                  <AvatarImage src="/hero-assets/client-4.jpg" alt="client 4" />
+                  <AvatarImage src="/hero/client-4.jpg" alt="client 4" />
                 </Avatar>
               </div>
               <p className="text-xs sm:text-sm text-nowrap mt-2 sm:mt-0">
@@ -69,7 +69,7 @@ function Hero() {
         <div className="hidden md:block absolute md:right-[-250px] lg:right-0 xl:right-8 bottom-0 z-50">
           <div className="relative md:w-[850px] lg:w-[1000px] xl:w-[1100px] scale-x-[-1]">
             <Image
-              src="/hero-assets/hero-image.png"
+              src="/hero/hero-image.png"
               alt="Infusi LLC"
               width={1100}
               height={1100}

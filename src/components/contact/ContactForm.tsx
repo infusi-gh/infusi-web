@@ -101,7 +101,7 @@ export default function ContactForm() {
             <div className="flex flex-col items-center text-center space-y-6 py-8">
               <div className="relative w-full max-w-md aspect-565/481 mx-auto">
                 <Image
-                  src="/contact-assets/send.svg"
+                  src="/about/globe.svg"
                   alt="Message sent successfully"
                   fill
                   className="object-contain"

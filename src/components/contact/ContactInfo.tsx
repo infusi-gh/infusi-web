@@ -1,39 +1,21 @@
 import Image from "next/image"
 import { MapPin, Mail, Phone } from "lucide-react"
+import PageHero from "@/components/shared/PageHero"
 
 export default function ContactInfo() {
   return (
     <>
-      <section className="relative bg-background overflow-hidden">
-        {/* background vectors */}
-        <div className="pointer-events-none absolute inset-0">
-          <Image
-            src="/hero-assets/vector-1.svg"
-            alt=""
-            fill
-            priority
-            className="object-cover opacity-50"
-          />
-          <Image
-            src="/hero-assets/vector-2.svg"
-            alt=""
-            fill
-            priority
-            className="object-cover opacity-30"
-          />
-        </div>
-
-        <div className="relative max-w-7xl mx-auto section-padding pt-28 md:pt-40 pb-40 md:pb-48 text-center">
-          <p className="text-xs sm:text-sm md:text-base tracking-wide text-[#27408E]/80 mb-3">
-            Contact us
-          </p>
-          <h1 className="font-semibold text-balance tracking-tight leading-[1.05] text-[#27408E] text-[clamp(1.75rem,3.5vw+0.25rem,3.25rem)]!">
-            Lorem ipsum <span className="text-primary">secteturser</span>
-            <br className="hidden sm:block" /> amet{" "}
-            <span className="text-primary">consectetur</span>
-          </h1>
-        </div>
-
+      <section className="relative bg-background overflow-hidden text-[#27408E] pb-32 md:pb-48">
+        <PageHero
+          subtitle="Contact us"
+          title={
+            <>
+              Lorem ipsum <span className="text-[#6989EC]">secteturser</span>{" "}
+              <br />
+              amet <span className="text-[#6989EC]">consectetur</span>
+            </>
+          }
+        />
         <svg
           className="absolute -bottom-px left-0 w-full h-28 md:h-40"
           viewBox="0 0 1729 400"
@@ -105,7 +87,7 @@ export default function ContactInfo() {
             <div className="hidden md:block relative md:pl-4 lg:pl-12 overflow-visible">
               <div className="relative w-full ml-auto -mr-8 lg:-mr-16 -mt-10 md:-mt-16 h-[480px] md:h-[560px] lg:h-[640px] max-w-none">
                 <Image
-                  src="/contact-assets/map.svg"
+                  src="/contact/map.svg"
                   alt="Africa map"
                   fill
                   priority

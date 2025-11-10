@@ -9,7 +9,7 @@ const servicesData = [
     title: "Website Development",
     description:
       "Build powerful, responsive websites that engage your audience and drive growth. From custom designs to seamless functionality, we create web experiences that work.",
-    imageSrc: "/service-assets/service1.png",
+    imageSrc: "/service/service1.png",
     imageAlt: "Website Development",
     href: "/services/website-development",
   },
@@ -18,7 +18,7 @@ const servicesData = [
     title: "Software Development",
     description:
       "Transform your business with custom software solutions. From MVPs to enterprise systems, we deliver scalable applications that solve real problems.",
-    imageSrc: "/service-assets/service2.png",
+    imageSrc: "/service/service2.png",
     imageAlt: "Software Development",
     href: "/services/software-development",
   },
@@ -27,7 +27,7 @@ const servicesData = [
     title: "UI/UX Design",
     description:
       "Create beautiful, intuitive interfaces that users love. Our design approach combines aesthetics with usability to deliver exceptional digital experiences.",
-    imageSrc: "/service-assets/service3.png",
+    imageSrc: "/service/service3.png",
     imageAlt: "UI/UX Design",
     href: "/services/ui-ux-design",
   },
@@ -36,7 +36,7 @@ const servicesData = [
     title: "IT Consultancy",
     description:
       "Get expert guidance to navigate your digital transformation. We help businesses make informed technology decisions that drive success.",
-    imageSrc: "/service-assets/service4.png",
+    imageSrc: "/service/service4.png",
     imageAlt: "IT Consultancy",
     href: "/services/it-consultancy",
   },

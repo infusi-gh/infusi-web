@@ -9,7 +9,7 @@ export default function ContactCTA() {
           <div className="flex justify-center lg:justify-start order-2 lg:order-1">
             <div className="relative w-full max-w-md lg:max-w-lg">
               <Image
-                src="/contact-assets/hand.svg"
+                src="/contact/hand.svg"
                 alt="Mobile experience"
                 width={1200}
                 height={1200}

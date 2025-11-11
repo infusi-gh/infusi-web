@@ -1,6 +1,8 @@
-import Hero from "@/components/Hero"
-import Services from "@/components/Services"
-import Partners from "@/components/Partners"
+import Hero from "@/components/shared/Hero"
+import Services from "@/components/service/Services"
+import Partners from "@/components/service/Partners"
+import DigitalGrowth from "@/components/shared/DigitalGrowth"
+import WorkWithUsCards from "@/components/shared/WorkWithUsCards"
 import React from "react"
 
 export default function Home() {
@@ -40,6 +42,8 @@ export default function Home() {
 
       <Services />
       <Partners />
+      <DigitalGrowth />
+      <WorkWithUsCards />
     </>
   )
 }

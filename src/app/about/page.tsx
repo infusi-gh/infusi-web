@@ -1,10 +1,13 @@
-import { Button } from "@/components/ui/button"
+"use client"
+
 import SectionSeparator from "@/components/shared/SectionSeparator"
 import WorkWithUs from "@/components/shared/WorkWithUs"
 import PageHero from "@/components/shared/PageHero"
 import Image from "next/image"
 
 export default function AboutPage() {
+  // const { blogs, error, loading } = useBlogs()
+  // console.log("Blogs in AboutPage:", blogs)
   return (
     <main className="overflow-hidden text-[#27408E]">
       {/* ================= HERO SECTION ================= */}

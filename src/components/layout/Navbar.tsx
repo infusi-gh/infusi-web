@@ -22,6 +22,7 @@ import { useState } from "react"
 
 export function Navbar() {
   const pathname = usePathname()
+
   const [isResourcesOpen, setIsResourcesOpen] = useState(false)
   const navItems = [
     { name: "Solutions", href: "/solutions" },

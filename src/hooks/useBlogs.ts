@@ -1,33 +1,49 @@
-import { allBlogsQuery, singleBlogQuery } from "@/lib/queries"
+import {
+  allBlogsQuery,
+  singleBlogQuery,
+  type AllBlogsQueryResult,
+  type SingleBlogQueryResult,
+} from "@/lib/queries"
 import { client } from "@/sanity/lib/client"
-import { SanityDocument } from "next-sanity"
+import type { BlogListItem, BlogDetail } from "@/types/blog.types"
 import { useEffect, useState } from "react"
 
-// export interface BlogPost {
-//   _id: string
-//   title: string
-//   slug: { current: string }
-//   mainImage?: { asset: { url: string } }
-//   publishedAt: string
-//   excerpt?: string
-//   body?: any
-// }
+/**
+ * Hook return type for useBlogs
+ */
+interface UseBlogsReturn {
+  blogs: BlogListItem[]
+  loading: boolean
+  error: string | null
+}
 
-/** Fetch all blogs */
-export const useBlogs = () => {
-  const [blogs, setBlogs] = useState<SanityDocument[]>([])
-  const [loading, setLoading] = useState(true)
+/**
+ * Hook return type for useBlog
+ */
+interface UseBlogReturn {
+  blog: BlogDetail | null
+  loading: boolean
+  error: string | null
+}
+
+/**
+ * Fetch all blogs
+ * @returns {UseBlogsReturn} Object containing blogs array, loading state, and error state
+ */
+export const useBlogs = (): UseBlogsReturn => {
+  const [blogs, setBlogs] = useState<BlogListItem[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     console.log("Fetching blogs...")
-    const fetchBlogs = async () => {
+    const fetchBlogs = async (): Promise<void> => {
       try {
-        const data = await client.fetch(allBlogsQuery as string)
+        const data = await client.fetch<AllBlogsQueryResult>(allBlogsQuery)
         setBlogs(data)
       } catch (err) {
-        console.error(err)
-        setError("Failed to fetch blogs")
+        console.error("Error fetching blogs:", err)
+        setError(err instanceof Error ? err.message : "Failed to fetch blogs")
       } finally {
         setLoading(false)
       }
@@ -39,23 +55,33 @@ export const useBlogs = () => {
   return { blogs, loading, error }
 }
 
-/* Fetch single blog by slug */
-export const useBlog = (slug: string | undefined) => {
-  const [blog, setBlog] = useState<SanityDocument | null>(null)
-  const [loading, setLoading] = useState(true)
+/**
+ * Fetch single blog by slug
+ * @param {string | undefined} slug - The blog slug to fetch
+ * @returns {UseBlogReturn} Object containing blog object, loading state, and error state
+ */
+export const useBlog = (slug: string | undefined): UseBlogReturn => {
+  const [blog, setBlog] = useState<BlogDetail | null>(null)
+  const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    if (!slug) return
+    if (!slug) {
+      setLoading(false)
+      return
+    }
 
-    const fetchBlog = async () => {
+    const fetchBlog = async (): Promise<void> => {
       setLoading(true)
       try {
-        const data = await client.fetch(singleBlogQuery as string, { slug })
+        const data = await client.fetch<SingleBlogQueryResult>(
+          singleBlogQuery,
+          { slug }
+        )
         setBlog(data)
       } catch (err) {
-        console.error(err)
-        setError("Failed to fetch blog")
+        console.error(`Error fetching blog with slug "${slug}":`, err)
+        setError(err instanceof Error ? err.message : "Failed to fetch blog")
       } finally {
         setLoading(false)
       }

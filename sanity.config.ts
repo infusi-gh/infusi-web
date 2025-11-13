@@ -1,10 +1,11 @@
 "use client"
 
 /**
- * This configuration is used to for the Sanity Studio that’s mounted on the `/app/studio/[[...tool]]/page.tsx` route
+ * This configuration is used to for the Sanity Studio that's mounted on the `/app/studio/[[...tool]]/page.tsx` route
  */
 
 import { visionTool } from "@sanity/vision"
+import { codeInput } from "@sanity/code-input"
 import { defineConfig } from "sanity"
 import { structureTool } from "sanity/structure"
 
@@ -23,6 +24,11 @@ export default defineConfig({
     structureTool({ structure }),
     // Vision is for querying with GROQ from inside the Studio
     // https://www.sanity.io/docs/the-vision-plugin
-    visionTool({ defaultApiVersion: apiVersion }),
+    visionTool({
+      defaultApiVersion: apiVersion,
+      defaultDataset: dataset,
+    }),
+    // Code input for syntax highlighting in code blocks
+    codeInput(),
   ],
 })

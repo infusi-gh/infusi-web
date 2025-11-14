@@ -14,10 +14,12 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@portabletext/react": "^5.0.0",
     "@radix-ui/react-avatar": "^1.1.10",
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-dropdown-menu": "^2.1.16",
     "@radix-ui/react-slot": "^1.2.3",
+    "@sanity/code-input": "^6.0.3",
     "@sanity/icons": "^3.7.4",
     "@sanity/image-url": "^1.2.0",
     "@sanity/vision": "^4.15.0",
@@ -27,6 +29,7 @@
     "motion": "^12.23.24",
     "next": "15.4.5",
     "next-sanity": "^11.6.6",
+    "next-sanity-image": "^6.2.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "sanity": "^4.15.0",
@@ -61,6 +64,14 @@
     "*.{json,css,md}": [
       "prettier --write"
     ]
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowAny": [
+        "react",
+        "react-dom"
+      ]
+    }
   },
   "packageManager": "pnpm@10.11.1+sha512.e519b9f7639869dc8d5c3c5dfef73b3f091094b0a006d7317353c72b124e80e1afd429732e28705ad6bfa1ee879c1fce46c128ccebd3192101f43dd67c667912"
 }

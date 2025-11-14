@@ -1,4 +1,5 @@
 import React from "react"
+import Image from "next/image"
 
 interface DigitalGrowthProps {
   title?: string
@@ -112,19 +113,21 @@ export default function DigitalGrowth({
                 <div className="relative aspect-4/3 w-full">
                   {/* Top Image */}
                   <div className="absolute top-[-50%] left-40 w-[50%] sm:w-[60%] md:w-[60%] lg:w-[65%] aspect-4/3 z-20">
-                    <img
+                    <Image
                       src={topImageSrc}
                       alt="Digital innovation illustration"
-                      className="w-full h-full object-contain opacity-90 drop-shadow-2xl"
+                      fill
+                      className="object-contain opacity-90 drop-shadow-2xl"
                     />
                   </div>
 
                   {/* Bottom Image */}
                   <div className=" bottom-full lg:bottom-10 sm:left-[5%] md:left-[8%] w-[45%] sm:w-[50%] md:w-[55%] lg:w-[58%] aspect-4/3 z-10 pulse hidden md:block lg:block">
-                    <img
+                    <Image
                       src={bottomImageSrc}
                       alt="Technology platform visualization"
-                      className="w-full h-full object-contain opacity-90 drop-shadow-2xl"
+                      fill
+                      className="object-contain opacity-90 drop-shadow-2xl"
                     />
                   </div>
                 </div>

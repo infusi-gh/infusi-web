@@ -31,7 +31,7 @@ export function Navbar() {
   ]
 
   const resourceItems = [
-    { name: "Blog", href: "/resources/blog" },
+    { name: "Blog", href: "/blog" },
     { name: "Case Studies", href: "/resources/case-studies" },
     { name: "Industries", href: "/resources/industries" },
     { name: "The Lab", href: "/the-lab" },
@@ -201,3 +201,5 @@ export function Navbar() {
     </nav>
   )
 }
+
+export default Navbar

@@ -123,7 +123,7 @@ function Footer() {
               </li>
               <li>
                 <Link
-                  href="/resources/blog"
+                  href="/blog"
                   className="hover:text-white transition-colors"
                 >
                   Blog

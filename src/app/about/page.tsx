@@ -1,9 +1,7 @@
 "use client"
 
-import SectionSeparator from "@/components/shared/SectionSeparator"
-import WorkWithUs from "@/components/shared/WorkWithUs"
-import PageHero from "@/components/shared/PageHero"
 import Image from "next/image"
+import { SectionSeparator, CTA, PageHero } from "@/components/shared"
 
 export default function AboutPage() {
   // const { blogs, error, loading } = useBlogs()
@@ -110,7 +108,7 @@ export default function AboutPage() {
       </section>
 
       {/* ================= CTA SECTION ================= */}
-      <WorkWithUs />
+      <CTA />
     </main>
   )
 }

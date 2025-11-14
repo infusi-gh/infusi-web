@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { MapPin, Mail, Phone } from "lucide-react"
-import PageHero from "@/components/shared/PageHero"
+import { PageHero } from "@/components/shared"
 
 export default function ContactInfo() {
   return (

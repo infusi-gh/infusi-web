@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
-export default function WorkWithUs() {
+export default function CTA() {
   return (
     <section className="relative bg-[#0F4BFF] text-white overflow-hidden">
       {/* Decorative background with curves */}

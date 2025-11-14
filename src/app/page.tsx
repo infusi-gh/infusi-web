@@ -1,9 +1,11 @@
-import Hero from "@/components/shared/Hero"
-import Services from "@/components/service/Services"
-import Partners from "@/components/service/Partners"
-import DigitalGrowth from "@/components/shared/DigitalGrowth"
-import WorkWithUsCards from "@/components/shared/WorkWithUsCards"
 import React from "react"
+import {
+  Hero,
+  DigitalGrowth,
+  WorkWithUsCards,
+  BlogSection,
+} from "@/components/shared"
+import { Services, Partners } from "@/components/service"
 
 export default function Home() {
   return (
@@ -43,6 +45,7 @@ export default function Home() {
       <Services />
       <Partners />
       <DigitalGrowth />
+      <BlogSection />
       <WorkWithUsCards />
     </>
   )

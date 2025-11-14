@@ -99,16 +99,21 @@ export interface BlogListItem {
   categories: string[]
   publishedAt: string
   excerpt: string
-  image: {
-    asset: {
-      url: string
-    }
-  }
+  image: SanityImageAsset
 }
 
 /**
  * Single blog with full content (for blog detail page)
  */
-export interface BlogDetail extends BlogListItem {
+export interface BlogDetail {
+  _id: string
+  title: string
+  slug: {
+    current: string
+  }
+  categories: string[]
+  publishedAt: string
+  excerpt: string
+  image: SanityImageAsset
   content: PortableTextBlock[]
 }

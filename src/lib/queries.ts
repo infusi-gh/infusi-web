@@ -15,12 +15,7 @@ export const allBlogsQuery = groq`*[
   publishedAt,
   excerpt,
   categories,
-  image {
-    asset-> {
-      url
-    },
-    alt
-  }
+  image
 }`
 
 /**
@@ -34,47 +29,8 @@ export const singleBlogQuery = groq`*[_type == "blog" && slug.current == $slug][
   publishedAt,
   excerpt,
   categories,
-  image {
-    asset-> {
-      url
-    },
-    alt
-  },
-  content[] {
-    ...,
-    _type == "image" => {
-      _type,
-      _key,
-      asset-> {
-        _id,
-        url,
-        metadata {
-          dimensions,
-          lqip
-        }
-      },
-      alt,
-      caption,
-      hotspot,
-      crop
-    },
-    _type == "code" => {
-      _type,
-      _key,
-      code,
-      language,
-      filename
-    },
-    markDefs[] {
-      ...,
-      _type == "link" => {
-        _key,
-        _type,
-        href,
-        blank
-      }
-    }
-  }
+  image,
+  content
 }`
 
 // Type-safe query exports with return types

@@ -1,5 +1,4 @@
 import Image from "next/image"
-import { MapPin, Mail, Phone } from "lucide-react"
 import { PageHero } from "@/components/shared"
 
 export default function ContactInfo() {
@@ -44,17 +43,27 @@ export default function ContactInfo() {
             {/* Info card */}
             <div className="self-start rounded-xl bg-white/5 backdrop-blur-sm shadow-sm ring-1 ring-white/10 p-3 md:p-4 w-full max-w-xs">
               <div className="flex items-center gap-3 mb-6">
-                <span className="inline-flex h-6 w-8 items-center justify-center rounded-sm overflow-hidden">
-                  <span className="h-full w-1/3 bg-red-600" />
-                  <span className="h-full w-1/3 bg-yellow-400" />
-                  <span className="h-full w-1/3 bg-green-600" />
+                <span className="inline-flex h-6 w-8 items-center justify-center rounded-sm overflow-hidden relative">
+                  <Image
+                    src="/about/ghana.svg"
+                    alt="Ghana flag"
+                    width={32}
+                    height={24}
+                    className="object-cover"
+                  />
                 </span>
                 <span className="text-lg font-semibold">Ghana</span>
               </div>
 
               <div className="space-y-3 text-white/80">
                 <div className="flex items-start gap-3">
-                  <MapPin size={22} className="text-white/70 shrink-0" />
+                  <Image
+                    src="/about/location.svg"
+                    alt="Location"
+                    width={22}
+                    height={22}
+                    className="text-white/70 shrink-0"
+                  />
                   <p className="text-sm leading-snug">
                     Post Office Box TB86 <br />
                     Taifa, Accra - Ghana
@@ -62,7 +71,13 @@ export default function ContactInfo() {
                 </div>
                 <div className="h-px bg-white/10" />
                 <div className="flex items-center gap-3">
-                  <Mail size={22} className="text-white/70 shrink-0" />
+                  <Image
+                    src="/about/message.svg"
+                    alt="Email"
+                    width={22}
+                    height={22}
+                    className="text-white/70 shrink-0"
+                  />
                   <a
                     href="mailto:info@infusi.co"
                     className="text-sm hover:underline"
@@ -71,7 +86,13 @@ export default function ContactInfo() {
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Phone size={22} className="text-white/70 shrink-0" />
+                  <Image
+                    src="/about/phone.svg"
+                    alt="Phone"
+                    width={22}
+                    height={22}
+                    className="text-white/70 shrink-0"
+                  />
                   <a
                     href="tel:+233541874236"
                     className="text-sm hover:underline"

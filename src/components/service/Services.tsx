@@ -1,7 +1,10 @@
+"use client"
+
 import React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "../ui/button"
+import { motion } from "motion/react"
 
 const servicesData = [
   {
@@ -69,8 +72,16 @@ function Services() {
             const isLeft = index % 2 === 0
 
             return (
-              <div
+              <motion.div
                 key={service.id}
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{
+                  duration: 0.7,
+                  delay: 0.1,
+                  ease: "easeOut",
+                }}
                 className="md:h-[480px] h-auto grid md:grid-cols-2 grid-cols-1 gap-4 items-center md:bg-transparent bg-[#0D193E] md:rounded-none rounded-[25px] md:p-0 p-6"
               >
                 {/* Text Content */}
@@ -99,9 +110,14 @@ function Services() {
                       {service.description}
                     </p>
                     <Link href={service.href}>
-                      <Button className="bg-[#4169FF] hover:bg-[#3057E8] text-white px-6 py-2.5 rounded-md text-sm font-medium">
-                        Learn more
-                      </Button>
+                      <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Button className="bg-[#4169FF] hover:bg-[#3057E8] text-white px-6 py-2.5 rounded-md text-sm font-medium transition-colors">
+                          Learn more
+                        </Button>
+                      </motion.div>
                     </Link>
                   </div>
                 </div>
@@ -112,7 +128,11 @@ function Services() {
                     isLeft ? "md:order-2" : "md:order-1"
                   }`}
                 >
-                  <div className="bg-white rounded-[25px] w-full md:h-[400px] h-[280px] flex items-end justify-center overflow-visible relative">
+                  <motion.div
+                    whileHover={{ scale: 1.02, y: -5 }}
+                    transition={{ duration: 0.3 }}
+                    className="bg-white rounded-[25px] w-full md:h-[400px] h-[280px] flex items-end justify-center overflow-visible relative shadow-lg hover:shadow-2xl transition-shadow"
+                  >
                     <div
                       className={`absolute bottom-0 left-1/2 -translate-x-1/2 md:w-[110%] w-full ${index === 3 ? "md:h-80 h-[280px]" : "md:h-[460px] h-80"}`}
                     >
@@ -125,9 +145,9 @@ function Services() {
                         priority={index === 0}
                       />
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
-              </div>
+              </motion.div>
             )
           })}
         </div>

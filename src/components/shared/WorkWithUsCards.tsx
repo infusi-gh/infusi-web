@@ -1,6 +1,9 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import { motion } from "motion/react"
 
 export default function WorkWithUsCards() {
   return (
@@ -52,16 +55,29 @@ export default function WorkWithUsCards() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pb-16 md:pb-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {/* Join as a Client Card */}
-          <div className="flex flex-col">
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            whileHover={{ y: -10 }}
+            className="flex flex-col"
+          >
             <div className="relative w-full h-64 md:h-80 rounded-t-3xl overflow-hidden bg-white">
-              <Image
-                src="/hero/client.png"
-                alt="Join as a Client"
-                fill
-                className="object-cover"
-              />
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+                className="relative w-full h-full"
+              >
+                <Image
+                  src="/hero/client.png"
+                  alt="Join as a Client"
+                  fill
+                  className="object-cover"
+                />
+              </motion.div>
             </div>
-            <div className="bg-white rounded-b-3xl p-6 md:p-8 flex flex-col grow">
+            <div className="bg-white rounded-b-3xl p-6 md:p-8 flex flex-col grow shadow-lg hover:shadow-2xl transition-shadow">
               <h3 className="text-2xl md:text-3xl font-bold mb-3 text-[#27408E]">
                 Join as a Client
               </h3>
@@ -69,27 +85,45 @@ export default function WorkWithUsCards() {
                 Lorem ipsum dolor sit amet consectetur. Volutpat.
               </p>
               <div>
-                <Button
-                  asChild
-                  className="bg-[#0F4BFF] text-white hover:bg-[#0F4BFF]/90 px-8 py-6 text-lg font-semibold"
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <Link href="/contact">Join us</Link>
-                </Button>
+                  <Button
+                    asChild
+                    className="bg-[#0F4BFF] text-white hover:bg-[#0F4BFF]/90 px-8 py-6 text-lg font-semibold transition-colors"
+                  >
+                    <Link href="/contact">Join us</Link>
+                  </Button>
+                </motion.div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Join team Card */}
-          <div className="flex flex-col">
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            whileHover={{ y: -10 }}
+            className="flex flex-col"
+          >
             <div className="relative w-full h-64 md:h-80 rounded-t-3xl overflow-hidden bg-white">
-              <Image
-                src="/hero/team.png"
-                alt="Join team"
-                fill
-                className="object-cover"
-              />
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+                className="relative w-full h-full"
+              >
+                <Image
+                  src="/hero/team.png"
+                  alt="Join team"
+                  fill
+                  className="object-cover"
+                />
+              </motion.div>
             </div>
-            <div className="bg-white rounded-b-3xl p-6 md:p-8 flex flex-col grow">
+            <div className="bg-white rounded-b-3xl p-6 md:p-8 flex flex-col grow shadow-lg hover:shadow-2xl transition-shadow">
               <h3 className="text-2xl md:text-3xl font-bold mb-3 text-[#27408E]">
                 Join team
               </h3>
@@ -97,15 +131,20 @@ export default function WorkWithUsCards() {
                 Lorem ipsum dolor sit amet consectetur. Volutpat.
               </p>
               <div>
-                <Button
-                  asChild
-                  className="bg-[#0F4BFF] text-white hover:bg-[#0F4BFF]/90 px-8 py-6 text-lg font-semibold"
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <Link href="/contact">Join the team</Link>
-                </Button>
+                  <Button
+                    asChild
+                    className="bg-[#0F4BFF] text-white hover:bg-[#0F4BFF]/90 px-8 py-6 text-lg font-semibold transition-colors"
+                  >
+                    <Link href="/contact">Join the team</Link>
+                  </Button>
+                </motion.div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -72,21 +72,21 @@ export default function CTA() {
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-12 py-16 md:py-24 text-center">
-        <p className="text-xs sm:text-sm md:text-base tracking-wide mb-3">
+        {/* <p className="text-xs sm:text-sm md:text-base tracking-wide mb-3">
           LET&apos;S GET STARTED
-        </p>
+        </p> */}
         <h2 className="font-bold mb-5 md:mb-6 text-balance tracking-tight whitespace-nowrap leading-[1.07] text-xl! sm:text-2xl! md:text-3xl! lg:text-4xl!">
-          Ready to Build a Future for Your Business?
+          Interested in working for your business <br /> including SMEs
         </h2>
-        <p className="text-base md:text-lg lg:text-xl mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed">
+        {/* <p className="text-base md:text-lg lg:text-xl mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed">
           Book a meeting, inquire a quote or do anything. We&apos;re here to
           elevate with you! Want to meet the team say hello.
-        </p>
+        </p> */}
         <Button
           asChild
-          size="lg"
+          size="default"
           variant="outline"
-          className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#0F4BFF] px-8 py-6 text-base font-semibold transition-all"
+          className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#0F4BFF] px-8 py-6  font-semibold transition-all"
         >
           <Link href="/contact">Contact our team</Link>
         </Button>

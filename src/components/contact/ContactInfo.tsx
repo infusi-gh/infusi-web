@@ -10,9 +10,8 @@ export default function ContactInfo() {
           subtitle="Contact us"
           title={
             <>
-              Lorem ipsum <span className="text-[#6989EC]">secteturser</span>{" "}
-              <br />
-              amet <span className="text-[#6989EC]">consectetur</span>
+              Let’s grow business
+              <span className="text-[#6989EC]"> together! </span>
             </>
           }
         />
@@ -57,8 +56,8 @@ export default function ContactInfo() {
                 <div className="flex items-start gap-3">
                   <MapPin size={22} className="text-white/70 shrink-0" />
                   <p className="text-sm leading-snug">
-                    Lorem ipsum dolor sit amet consectetur. Auctor leo
-                    pellentesque dis tincidunt
+                    Post Office Box TB86 <br />
+                    Taifa, Accra - Ghana
                   </p>
                 </div>
                 <div className="h-px bg-white/10" />

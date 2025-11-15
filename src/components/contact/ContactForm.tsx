@@ -24,8 +24,8 @@ export default function ContactForm() {
           <h2 className="font-semibold text-[#27408E] text-balance tracking-tight leading-[1.05] text-4xl! sm:text-5xl! md:text-6xl!">
             We love to hear from you
           </h2>
-          <p className="text-base md:text-lg text-[#0D193E]/85 mb-8 max-w-3xl">
-            Let&apos;s get talking about your needs. You can fill the form below
+          <p className="text-base md:text-lg text-[#27408E] mb-8 max-w-3xl">
+            Let’s get talking about your needs. You can fill the form below
           </p>
         </div>
 

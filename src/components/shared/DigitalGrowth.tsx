@@ -1,5 +1,8 @@
-import React from "react"
+"use client"
+
+import React, { useEffect, useRef, useState } from "react"
 import Image from "next/image"
+import { motion } from "motion/react"
 
 interface DigitalGrowthProps {
   title?: string
@@ -18,10 +21,67 @@ export default function DigitalGrowth({
   topImageSrc = "/hero/top-image.png",
   bottomImageSrc = "/hero/bottom-image.png",
 }: DigitalGrowthProps) {
+  const [topImageVisible, setTopImageVisible] = useState(true)
+  const [bottomImageVisible, setBottomImageVisible] = useState(true)
+  const topImageRef = useRef<HTMLDivElement>(null)
+  const bottomImageRef = useRef<HTMLDivElement>(null)
+  const blueBgRef = useRef<SVGSVGElement>(null)
+
+  useEffect(() => {
+    const topImage = topImageRef.current
+    const bottomImage = bottomImageRef.current
+    const blueBg = blueBgRef.current
+
+    if (!topImage || !bottomImage || !blueBg) return
+
+    let ticking = false
+
+    const checkVisibility = () => {
+      const bgRect = blueBg.getBoundingClientRect()
+      const bgBottom = bgRect.bottom
+
+      // Check top image
+      const topRect = topImage.getBoundingClientRect()
+      if (topRect.bottom > bgBottom) {
+        setTopImageVisible(false)
+      } else {
+        setTopImageVisible(true)
+      }
+
+      // Check bottom image
+      const bottomRect = bottomImage.getBoundingClientRect()
+      if (bottomRect.bottom > bgBottom) {
+        setBottomImageVisible(false)
+      } else {
+        setBottomImageVisible(true)
+      }
+
+      ticking = false
+    }
+
+    const requestCheck = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(checkVisibility)
+        ticking = true
+      }
+    }
+
+    // Check on scroll and resize
+    checkVisibility()
+    window.addEventListener("scroll", requestCheck, { passive: true })
+    window.addEventListener("resize", requestCheck)
+
+    return () => {
+      window.removeEventListener("scroll", requestCheck)
+      window.removeEventListener("resize", requestCheck)
+    }
+  }, [])
+
   return (
     <section className="relative">
       <div className="relative">
         <svg
+          ref={blueBgRef}
           className="w-full h-auto"
           viewBox="0 0 1728 1679"
           fill="none"
@@ -69,15 +129,25 @@ export default function DigitalGrowth({
 
               {/* Wave lines */}
               <g className="opacity-60">
-                <path
+                {/* First wave - draws left to right */}
+                <motion.path
                   d="M-48.5325 1478.5C-32.1991 1221.33 70.9675 746.096 352.968 902.496C705.468 1098 402.968 1444 802.968 1328.5C1122.97 1236.1 1120.3 924.663 1078.97 780.496C1046.8 604.163 1075.37 284.996 1446.97 418.996C1818.57 552.996 1627.47 1054.5 1485.47 1288.5C1451.8 1363.5 1461.27 1508.6 1768.47 1489"
                   stroke="#1A2955"
                   strokeWidth="5"
+                  initial={{ pathLength: 0 }}
+                  whileInView={{ pathLength: 1 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 3, ease: "easeInOut" }}
                 />
-                <path
+                {/* Second wave - draws right to left */}
+                <motion.path
                   d="M-284 1045.53C-194.513 803.885 40.7659 378.287 265.983 609.074C547.504 897.556 158.393 1142.13 574.713 1146.35C907.769 1149.72 982.062 797.336 996.441 700.672C1004.5 646.5 1135.27 225.003 1452.74 460.06C1770.22 695.117 1443.17 1120.63 1239.96 1304C1186.17 1366.18 1182.97 1637.5 1778.97 1500"
                   stroke="#1A2955"
                   strokeWidth="5"
+                  initial={{ pathLength: 0, pathSpacing: 1 }}
+                  whileInView={{ pathLength: 1, pathSpacing: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 3, ease: "easeInOut" }}
                 />
               </g>
             </svg>
@@ -87,13 +157,13 @@ export default function DigitalGrowth({
           <div className="relative z-10 container mx-auto px-6 sm:px-8 md:px-12 lg:px-12 sm:pt-32 md:pt-32 lg:pt-32 xl:pt-24 pb-24 sm:pb-32 md:pb-40 lg:pb-32 xl:pb-24 h-full flex items-start lg:items-center">
             <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 sm:gap-8 lg:gap-12 w-full">
               {/* Text Content */}
-              <div className=" pt-22 flex-1 text-left max-w-2xl">
+              <div className=" pt-22 flex-1 text-left max-w-2xl lg:max-w-xl">
                 <div className="space-y-3 sm:space-y-4 md:space-y-6 lg:mt-28">
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold max-w-[20ch] text-white leading-tight">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight lg:max-w-2xl">
                     {title}
                   </h2>
 
-                  <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-xl">
+                  <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed lg:max-w-lg">
                     {description}
                   </p>
 
@@ -109,27 +179,30 @@ export default function DigitalGrowth({
               </div>
 
               {/* Images Container */}
-              <div className="flex-1 relative w-full max-w-60 sm:max-w-[280px] md:max-w-[320px] lg:max-w-lg mt-8 sm:mt-12 md:mt-16 lg:mt-0 ml-auto mr-4 sm:mr-8 md:mr-12 lg:mr-0">
-                <div className="relative aspect-4/3 w-full">
-                  {/* Top Image */}
-                  <div className="absolute top-[-50%] left-40 w-[50%] sm:w-[60%] md:w-[60%] lg:w-[65%] aspect-4/3 z-20">
-                    <Image
-                      src={topImageSrc}
-                      alt="Digital innovation illustration"
-                      fill
-                      className="object-contain opacity-90 drop-shadow-2xl"
-                    />
-                  </div>
+              <div className="flex flex-col items-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-10 w-full lg:flex-1">
+                <div
+                  ref={topImageRef}
+                  className={`relative w-[45%] xs:w-[50%] sm:w-[55%] md:w-[50%] lg:w-[48%] xl:w-[45%] 2xl:w-[40%] aspect-4/3 transition-opacity duration-300 ${topImageVisible ? "opacity-100" : "opacity-0"}`}
+                >
+                  <Image
+                    src={topImageSrc}
+                    alt="Top"
+                    fill
+                    className="object-contain opacity-90 drop-shadow-2xl"
+                    priority
+                  />
+                </div>
 
-                  {/* Bottom Image */}
-                  <div className=" bottom-full lg:bottom-10 sm:left-[5%] md:left-[8%] w-[45%] sm:w-[50%] md:w-[55%] lg:w-[58%] aspect-4/3 z-10 pulse hidden md:block lg:block">
-                    <Image
-                      src={bottomImageSrc}
-                      alt="Technology platform visualization"
-                      fill
-                      className="object-contain opacity-90 drop-shadow-2xl"
-                    />
-                  </div>
+                <div
+                  ref={bottomImageRef}
+                  className={`relative w-[45%] xs:w-[50%] sm:w-[55%] md:w-[50%] lg:w-[48%] xl:w-[45%] 2xl:w-[40%] aspect-4/3 transition-opacity duration-300 ${bottomImageVisible ? "opacity-100" : "opacity-0"}`}
+                >
+                  <Image
+                    src={bottomImageSrc}
+                    alt="Bottom"
+                    fill
+                    className="object-contain opacity-90 drop-shadow-2xl"
+                  />
                 </div>
               </div>
             </div>

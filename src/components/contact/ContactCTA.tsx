@@ -24,12 +24,10 @@ export default function ContactCTA() {
             <h2 className="font-semibold text-[#27408E] text-balance tracking-tight leading-[1.05] text-4xl! sm:text-5xl! md:text-6xl!">
               Transform Your Business
             </h2>
-            <p className="text-base md:text-lg lg:text-xl text-foreground/70 leading-relaxed max-w-xl">
-              lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. lorem ipsum dolor sit
-              amet, consectetur adipiscing elit.
+            <p className="text-sm md:text-base text-[#4A63AE] leading-relaxed max-w-xl">
+              Finding the perfect fit is as important to us as it is to you,
+              whether you’re searching for top talent to drive your company’s
+              success or seeking a role that fulfils your career goals.
             </p>
           </div>
         </div>

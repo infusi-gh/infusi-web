@@ -6,39 +6,39 @@ import { Button } from "../ui/button"
 const servicesData = [
   {
     id: 1,
-    title: "Website Development",
+    title: "Innovation",
     description:
-      "Build powerful, responsive websites that engage your audience and drive growth. From custom designs to seamless functionality, we create web experiences that work.",
+      "Driven by curiosity and creativity, we harness emerging technologies to build meaningful and transformative solutions. Innovation isn’t just what we do,  it’s who we are",
     imageSrc: "/service/service1.png",
-    imageAlt: "Website Development",
-    href: "/services/website-development",
+    imageAlt: "Innovation",
+    href: "/services/innovation",
   },
   {
     id: 2,
-    title: "Software Development",
+    title: "Sustainability",
     description:
-      "Transform your business with custom software solutions. From MVPs to enterprise systems, we deliver scalable applications that solve real problems.",
+      "We are dedicated to shaping a smarter, greener future by integrating responsible practices and promoting sustainability in everything we create",
     imageSrc: "/service/service2.png",
-    imageAlt: "Software Development",
+    imageAlt: "sustainability",
     href: "/services/software-development",
   },
   {
     id: 3,
-    title: "UI/UX Design",
+    title: "Passion & Excellence",
     description:
-      "Create beautiful, intuitive interfaces that users love. Our design approach combines aesthetics with usability to deliver exceptional digital experiences.",
+      "We are fueled by passion and guided by precision. Our commitment to quality, innovation, and continuous improvement ensures we consistently exceed client expectations",
     imageSrc: "/service/service3.png",
-    imageAlt: "UI/UX Design",
+    imageAlt: "Passion & Excellence",
     href: "/services/ui-ux-design",
   },
   {
     id: 4,
-    title: "IT Consultancy",
+    title: "Team & Collaboration",
     description:
-      "Get expert guidance to navigate your digital transformation. We help businesses make informed technology decisions that drive success.",
+      "Our people are the core of our success. Through open communication, mutual respect, and collaboration, we cultivate a culture of growth and shared achievement",
     imageSrc: "/service/service4.png",
-    imageAlt: "IT Consultancy",
-    href: "/services/it-consultancy",
+    imageAlt: "Team & Collaboration",
+    href: "/services/team&collaboration",
   },
 ]
 

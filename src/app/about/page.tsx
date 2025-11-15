@@ -4,8 +4,6 @@ import Image from "next/image"
 import { SectionSeparator, CTA, PageHero } from "@/components/shared"
 
 export default function AboutPage() {
-  // const { blogs, error, loading } = useBlogs()
-  // console.log("Blogs in AboutPage:", blogs)
   return (
     <main className="overflow-hidden text-[#27408E]">
       {/* ================= HERO SECTION ================= */}
@@ -13,9 +11,12 @@ export default function AboutPage() {
         subtitle="What do we do?"
         title={
           <>
-            Lorem ipsum <span className="text-[#6989EC]">secteturser</span>{" "}
-            <br />
-            amet <span className="text-[#6989EC]">consectetur</span>
+            Infusi Tech. turns ideas into precise,
+            <span className="text-[#6989EC]"> high-performance </span>
+            technology solutions,
+            <span className="text-[#6989EC]"> eliminating </span>
+            delays and driving
+            <span className="text-[#6989EC]"> innovation</span>
           </>
         }
       />
@@ -27,12 +28,23 @@ export default function AboutPage() {
         {/* TEXT */}
         <div className="w-full md:w-1/2 space-y-6 z-10">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight">
-            Lorem ipsum dolor sit amet consecte Sit diam dui aliquam
+            Our Mission and Vision
           </h2>
-          <p className="text-[#27408E]/90 text-base md:text-lg leading-relaxed">
-            Access to payments and banking is crucial for the success of any
-            business. In Africa, where the majority of employment comes from
-            MSMEs, the stakes are even higher.
+          <p className="text-[#27408E]/90 text-sm md:text-base leading-relaxed">
+            At <strong>Infusi Technologies</strong>, our mission is simple yet
+            powerful - to <strong>infuse ideas with technology</strong>. We
+            believe that every great idea deserves the right technological
+            foundation to thrive. By merging creativity with innovation, we
+            transform concepts into scalable, impactful digital solutions that
+            empower businesses to grow and adapt in a fast-evolving world.
+          </p>
+          <p className="text-[#27408E]/90 text-sm md:text-base leading-relaxed">
+            Our vision is to be a trusted partner for organisations and
+            professionals alike — inspiring innovation, enabling transformation,
+            and delivering technology that drives meaningful change. Through
+            collaboration, expertise, and passion, we aim to shape a future
+            where technology in Africa amplifies human potential and turns
+            visionary ideas into lasting success.
           </p>
         </div>
 
@@ -47,16 +59,8 @@ export default function AboutPage() {
         </div>
 
         {/* Divider Line */}
-        <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-full flex justify-center">
-          <Image
-            src="/line.svg"
-            alt="line divider"
-            width={600}
-            height={200}
-            className="object-contain opacity-60"
-          />
-        </div>
       </section>
+      <SectionSeparator />
 
       {/* ================= SECTION 2 ================= */}
 
@@ -74,26 +78,37 @@ export default function AboutPage() {
         {/* TEXT */}
         <div className="w-full md:w-1/2 space-y-6 text-center md:text-left">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight">
-            Lorem ipsum dolor sit amet consecte Sit diam dui aliquam
+            Bridging Potentials and Performance
           </h2>
-          <p className="text-[#27408E]/90 text-base md:text-lg leading-relaxed">
-            Our technology empowers small businesses to manage payments, scale
-            growth, and achieve more financial independence.
+          <p className="text-[#27408E]/90 text-sm md:text-base leading-relaxed">
+            We connect high-performing professionals with visionary businesses
+            to deliver real results. At Infusi Tech, we bridge the gap between
+            talent and innovation—empowering companies to turn ideas into
+            reality through cutting-edge technology.
           </p>
         </div>
       </section>
+      <SectionSeparator />
 
       {/* ================= SECTION 3 ================= */}
 
-      <section className="relative flex flex-col-reverse md:flex-row items-center justify-between gap-12 section-padding pt-28 pb-56">
+      <section className="relative flex flex-col-reverse md:flex-row items-center justify-between gap-12 section-padding  py-24">
         {/* TEXT */}
         <div className="w-full md:w-1/2 space-y-6 text-center md:text-left">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight">
-            Lorem ipsum dolor sit amet consecte Sit diam dui aliquam
+            Why settle for slow and simple when you can have speed and
+            precision?
           </h2>
-          <p className="text-[#27408E]/90 text-base md:text-lg leading-relaxed">
-            We deliver scalable and future-ready platforms that connect
-            businesses and people through innovation and simplicity.
+          <p className="text-[#27408E]/90 text-sm md:text-base leading-relaxed">
+            At <strong>Infusi Technologies</strong>, we don&apos;t believe in
+            delays, inefficiencies, or one-size-fits-all solutions. We believe
+            in more than just building software—we engineer experiences. We
+            strip away inefficiencies and complexity, delivering intelligent,
+            high-performance solutions designed to scale, adapt, and drive
+            real-world impact with speed and precision. We challenge the norm,
+            crafting advanced, customized technology that empowers businesses to
+            move faster, smarter, and with greater precision in an ever-evolving
+            digital landscape
           </p>
         </div>
         {/* IMAGE (GLOBE) */}

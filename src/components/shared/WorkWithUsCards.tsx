@@ -82,7 +82,8 @@ export default function WorkWithUsCards() {
                 Join as a Client
               </h3>
               <p className="text-base md:text-lg mb-6 grow text-[#27408E]">
-                Lorem ipsum dolor sit amet consectetur. Volutpat.
+                Partner with us to transform your ideas into powerful digital
+                solutions that drive real results.
               </p>
               <div>
                 <motion.div
@@ -128,7 +129,8 @@ export default function WorkWithUsCards() {
                 Join team
               </h3>
               <p className="text-base md:text-lg mb-6 grow text-[#27408E]">
-                Lorem ipsum dolor sit amet consectetur. Volutpat.
+                Join a passionate team building innovative solutions that make a
+                real impact across Africa.
               </p>
               <div>
                 <motion.div

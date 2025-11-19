@@ -2,10 +2,10 @@ import React from "react"
 import Image from "next/image"
 
 const partnersData = [
-  { name: "MTN", logo: "/partner/mtn.svg" },
-  { name: "Telecel", logo: "/partner/telecel.svg" },
-  { name: "Paystack", logo: "/partner/paystack.svg" },
-  { name: "Brif", logo: "/partner/brif.svg" },
+  // { name: "MTN", logo: "/partner/mtn.svg" },
+  // { name: "Telecel", logo: "/partner/telecel.svg" },
+  // { name: "Paystack", logo: "/partner/paystack.svg" },
+  // { name: "Brif", logo: "/partner/brif.svg" },
   { name: "Døltech", logo: "/partner/doltech.svg" },
   { name: "Kweku Tech", logo: "/partner/kweku.svg" },
 ]
@@ -43,11 +43,11 @@ function Partners() {
         {/* Partner Logos Grid */}
         <div className="flex flex-col items-center gap-8 md:gap-12">
           {/* Top row - 4 logos */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 items-center justify-items-center w-full max-w-4xl">
+          <div className="grid grid-cols-2 items-center justify-items-center w-full max-w-4xl ">
             {partnersData.slice(0, 4).map(partner => (
               <div
                 key={partner.name}
-                className="relative h-12 md:h-16 w-full flex items-center justify-center"
+                className="relative h-12 md:h-16  w-full flex items-center justify-center"
               >
                 <Image
                   src={partner.logo}
@@ -60,7 +60,7 @@ function Partners() {
             ))}
           </div>
           {/* Bottom row - 2 logos centered */}
-          <div className="grid grid-cols-2 gap-8 md:gap-12 items-center justify-items-center w-full max-w-md">
+          {/* <div className="grid grid-cols-2 gap-8 md:gap-12 items-center justify-items-center w-full max-w-md">
             {partnersData.slice(4, 6).map(partner => (
               <div
                 key={partner.name}
@@ -75,7 +75,7 @@ function Partners() {
                 />
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

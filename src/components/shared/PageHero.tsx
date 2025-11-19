@@ -25,11 +25,11 @@ export default function PageHero({
       </div>
 
       {subtitle && (
-        <h3 className="text-base md:text-lg font-medium mb-4 tracking-wide">
+        <h3 className="text-[20px] md:text-lg font-medium mb-4 tracking-wide">
           {subtitle}
         </h3>
       )}
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-10 max-w-4xl">
+      <h1 className="text-[20px] sm:text-4xl md:text-5xl font-bold leading-tight mb-10 max-w-4xl">
         {title}
       </h1>
     </section>

@@ -19,7 +19,6 @@ function Hero() {
         <Image src="/hero/vector-1.svg" alt="Background curve" fill />
       </motion.div>
 
-      {/* Animated SVG Vector 2 - Draws Right to Left */}
       <motion.div
         className="absolute top-30 h-full inset-1 z-0 overflow-hidden"
         initial={{ clipPath: "inset(0 0 0 100%)" }}

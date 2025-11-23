@@ -16,7 +16,7 @@ export default function Home() {
       <Hero />
 
       {/* Introduction Section */}
-      <section className="w-full py-16 md:py-20 bg-[#EBF2FF]">
+      <section className="relative w-full pt-16  bg-[#EBF2FF]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -38,7 +38,7 @@ export default function Home() {
                 marginBottom: "1.5rem",
               }}
             >
-              Powerful solutions for Africa&apos;s digital future
+              Ideas to reality, tech-driven
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
@@ -58,8 +58,8 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
       <Services />
+
       <Partners />
       <DigitalGrowth />
       <BlogSection />

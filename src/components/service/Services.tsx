@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "../ui/button"
-import { motion, useScroll, useTransform } from "motion/react"
+import { motion } from "motion/react"
 
 const servicesData = [
   {
@@ -46,63 +46,71 @@ const servicesData = [
 ]
 
 export default function Services() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    container: containerRef,
-  })
-
-  // Map scroll progress to an index (0 → 3)
-  const currentIndex = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, servicesData.length - 1]
-  )
-
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([])
   const [activeIndex, setActiveIndex] = useState(0)
 
-  // Track scroll position → convert to integer index
   useEffect(() => {
-    return currentIndex.on("change", v => {
-      const rounded = Math.round(v)
-      setActiveIndex(rounded)
+    const observers: IntersectionObserver[] = []
+
+    cardRefs.current.forEach((ref, index) => {
+      if (!ref) return
+
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              setActiveIndex(index)
+            }
+          })
+        },
+        { threshold: 1 }
+      )
+
+      observer.observe(ref)
+      observers.push(observer)
     })
+
+    return () => observers.forEach(o => o.disconnect())
   }, [])
 
-  return (
-    <section className="w-full py-16 relative">
-      <div className="section-padding w-full mx-auto  relative">
-        {/* Scroll container — only one service per page */}
-        <div className="h-fit relative px-4">
-          {/* Vertical Line */}
-          <div className="absolute left-2.5 top-5 bottom-5 w-[2px] bg-[#4169FF]/30" />
+  // Dot Y positions (top / middle / lower / bottom)
+  const dotPositions = [40, 180, 320, 460]
 
-          {/* Moving Dot */}
-          <motion.div
-            className="absolute left-0 z-50"
-            animate={{
-              top: activeIndex * 110 + 50, // moves to each step
-            }}
-            transition={{ type: "spring", stiffness: 200, damping: 22 }}
-          >
-            <div className="w-5 h-5 bg-[#4169FF] rounded-full border-4 border-white shadow-lg" />
-          </motion.div>
-          <div
-            ref={containerRef}
-            className="relative z-10 h-[520px] overflow-y-scroll overflow-x-nos snap-y snap-mandatory "
-          >
+  return (
+    <section className="w-full py-20 relative">
+      <div className="section-padding w-full mx-auto relative">
+        <div className="relative flex">
+          {/* LEFT STEPPER */}
+          <div className="sticky top-32 h-[500px] w-[40px] z-40">
+            <div className="absolute left-8.5 top-0 bottom-0 w-[2px] bg-[#4169FF]/30" />
+
+            <motion.div
+              className="absolute left-6"
+              animate={{ top: dotPositions[activeIndex] }}
+              transition={{ type: "spring", stiffness: 200, damping: 22 }}
+            >
+              <div className="w-5 h-5 bg-[#4169FF] rounded-full border-4 border-white shadow-lg" />
+            </motion.div>
+          </div>
+
+          {/* RIGHT CONTENT */}
+          <div className="flex flex-col w-full">
             {servicesData.map((service, index) => (
-              <motion.div
+              <div
                 key={service.id}
-                className="snap-start h-[410px] flex flex-col md:flex-row md:gap-10 justify-start items-center  relative"
-                style={{
-                  opacity: activeIndex === index ? 1 : 0.2,
-                  scale: activeIndex === index ? 1 : 0.95,
-                  transition: "all 0.4s ease",
+                ref={el => {
+                  cardRefs.current[index] = el
                 }}
+                className="min-h-[450px] flex flex-col md:flex-row md:gap-10 items-center"
               >
-                {/* Content Box */}
-                <div className="bg-white text-[#27408E] h-[400px] rounded-2xl p-14 shadow-lg space-y-8 md:w-[600px] flex flex-col justify-center relative z-10">
-                  <h3 className="text-5xl font-bold">{service.title}</h3>
+                <div
+                  className={`bg-white text-[#27408E] h-[450px] rounded-2xl p-14 shadow-lg space-y-8 md:w-[650px] flex flex-col justify-center transition-all duration-300 ${
+                    activeIndex === index
+                      ? "opacity-100 scale-100"
+                      : "opacity-0 scale-95"
+                  }`}
+                >
+                  <h3 className="text-6xl font-bold">{service.title}</h3>
                   <p className="text-[#27408E]/80 leading-relaxed">
                     {service.description}
                   </p>
@@ -114,22 +122,21 @@ export default function Services() {
                   </Link>
                 </div>
 
-                {/* Image Box overlapping the card */}
                 <motion.div
-                  animate={{ opacity: activeIndex === index ? 1 : 0.3 }}
+                  animate={{ opacity: activeIndex === index ? 1 : 0 }}
                   transition={{ duration: 0.3 }}
-                  className="md:min-w-[350px] -mt-20 md:-mt-0 md:-ml-20 z-20"
+                  className="md:min-w-[350px] -mt-20 md:-mt-0 md:-ml-20"
                 >
-                  <div className="relative h-[300px] md:min-h-[400px]  flex min-w-[550px]">
+                  <div className="relative h-[300px] md:min-h-[400px] min-w-[550px]">
                     <Image
                       src={service.imageSrc}
                       alt={service.imageAlt}
                       fill
-                      className="object-cover w-full h-full"
+                      className="object-cover rounded-xl"
                     />
                   </div>
                 </motion.div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

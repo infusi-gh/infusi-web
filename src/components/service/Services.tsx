@@ -63,7 +63,9 @@ export default function Services() {
             }
           })
         },
-        { threshold: 1 }
+        {
+          threshold: 1,
+        }
       )
 
       observer.observe(ref)
@@ -73,19 +75,21 @@ export default function Services() {
     return () => observers.forEach(o => o.disconnect())
   }, [])
 
-  // Dot Y positions (top / middle / lower / bottom)
+  // Dot Y positions:
   const dotPositions = [40, 180, 320, 460]
 
   return (
     <section className="w-full py-20 relative">
-      <div className="section-padding w-full mx-auto relative">
-        <div className="relative flex">
+      <div className=" relative max-w-[1200px] mx-auto px-6 md:px-12">
+        <div className="relative flex justify-center ">
           {/* LEFT STEPPER */}
           <div className="sticky top-32 h-[500px] w-[40px] z-40">
-            <div className="absolute left-8.5 top-0 bottom-0 w-[2px] bg-[#4169FF]/30" />
+            {/* Vertical line */}
+            <div className="absolute -left-1 top-0 bottom-0 w-[2px] bg-[#4169FF]/30" />
 
+            {/* Moving dot */}
             <motion.div
-              className="absolute left-6"
+              className="absolute -left-3 "
               animate={{ top: dotPositions[activeIndex] }}
               transition={{ type: "spring", stiffness: 200, damping: 22 }}
             >
@@ -94,23 +98,24 @@ export default function Services() {
           </div>
 
           {/* RIGHT CONTENT */}
-          <div className="flex flex-col w-full">
+          <div className="flex flex-col  w-full items-center ">
             {servicesData.map((service, index) => (
               <div
                 key={service.id}
                 ref={el => {
                   cardRefs.current[index] = el
                 }}
-                className="min-h-[450px] flex flex-col md:flex-row md:gap-10 items-center"
+                className="min-h-[450px] flex flex-col md:flex-row md:gap-10 items-center justify-between w-full"
               >
+                {/* Content Box */}
                 <div
-                  className={`bg-white text-[#27408E] h-[450px] rounded-2xl p-14 shadow-lg space-y-8 md:w-[650px] flex flex-col justify-center transition-all duration-300 ${
+                  className={`bg-white text-[#27408E] h-[450px] rounded-2xl p-14  space-y-8 md:w-[650px] flex flex-col justify-center transition-all duration-300 ${
                     activeIndex === index
                       ? "opacity-100 scale-100"
                       : "opacity-0 scale-95"
                   }`}
                 >
-                  <h3 className="text-6xl font-bold">{service.title}</h3>
+                  <h3 className="text-5xl font-bold">{service.title}</h3>
                   <p className="text-[#27408E]/80 leading-relaxed">
                     {service.description}
                   </p>
@@ -122,6 +127,7 @@ export default function Services() {
                   </Link>
                 </div>
 
+                {/* Image */}
                 <motion.div
                   animate={{ opacity: activeIndex === index ? 1 : 0 }}
                   transition={{ duration: 0.3 }}

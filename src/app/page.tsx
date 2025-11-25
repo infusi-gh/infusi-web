@@ -38,7 +38,7 @@ export default function Home() {
                 marginBottom: "1.5rem",
               }}
             >
-              Powerful solutions for Africa&apos;s digital future
+              Ideas to reality, tech-driven
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 30 }}

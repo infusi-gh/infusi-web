@@ -64,7 +64,8 @@ export default function Services() {
           })
         },
         {
-          threshold: 1,
+          threshold: 0.5,
+          rootMargin: "-20% 0px -20% 0px",
         }
       )
 
@@ -79,13 +80,13 @@ export default function Services() {
   const dotPositions = [40, 180, 320, 460]
 
   return (
-    <section className="w-full py-20 relative">
-      <div className=" relative max-w-[1200px] mx-auto px-6 md:px-12">
-        <div className="relative flex justify-center ">
+    <section className="w-full py-20 pb-32 relative overflow-visible">
+      <div className="relative w-full mx-auto px-6 md:px-12 lg:px-24 overflow-visible">
+        <div className="relative flex justify-center overflow-visible">
           {/* LEFT STEPPER */}
-          <div className="sticky top-32 h-[500px] w-[40px] z-40">
+          <div className="sticky top-32 h-[450px] md:h-[500px] lg:h-[550px] w-10 z-40">
             {/* Vertical line */}
-            <div className="absolute -left-1 top-0 bottom-0 w-[2px] bg-[#4169FF]/30" />
+            <div className="absolute -left-1 top-0 bottom-0 w-0.5 bg-[#4169FF]/30" />
 
             {/* Moving dot */}
             <motion.div
@@ -98,25 +99,28 @@ export default function Services() {
           </div>
 
           {/* RIGHT CONTENT */}
-          <div className="flex flex-col  w-full items-center ">
+          <div className="flex flex-col w-full max-w-[1200px] items-center overflow-visible">
             {servicesData.map((service, index) => (
               <div
                 key={service.id}
                 ref={el => {
                   cardRefs.current[index] = el
                 }}
-                className="min-h-[450px] flex flex-col md:flex-row md:gap-10 items-center justify-between w-full"
+                className="min-h-[400px] md:min-h-[500px] lg:min-h-[550px] flex flex-col md:flex-row md:gap-6 lg:gap-10 items-center justify-between w-full overflow-visible"
               >
                 {/* Content Box */}
                 <div
-                  className={`bg-white text-[#27408E] h-[450px] rounded-2xl p-14  space-y-8 md:w-[650px] flex flex-col justify-center transition-all duration-300 ${
+                  className={`bg-white text-[#27408E] h-[300px] md:h-[350px] lg:h-[400px] rounded-2xl p-6 md:p-10 lg:p-12 space-y-4 md:space-y-6 w-full md:w-[500px] lg:w-[580px] flex flex-col justify-center transition-all duration-300 ${
                     activeIndex === index
                       ? "opacity-100 scale-100"
                       : "opacity-0 scale-95"
                   }`}
+                  style={{ zIndex: 1 }}
                 >
-                  <h3 className="text-5xl font-bold">{service.title}</h3>
-                  <p className="text-[#27408E]/80 leading-relaxed">
+                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm md:text-base text-[#27408E]/80 leading-relaxed">
                     {service.description}
                   </p>
 
@@ -131,14 +135,18 @@ export default function Services() {
                 <motion.div
                   animate={{ opacity: activeIndex === index ? 1 : 0 }}
                   transition={{ duration: 0.3 }}
-                  className="md:min-w-[350px] -mt-20 md:-mt-0 md:-ml-20"
+                  className="w-full md:w-auto md:min-w-[450px] lg:min-w-[550px] -mt-16 md:mt-0 md:-ml-16 lg:-ml-20 relative isolate"
+                  style={{ zIndex: 100 }}
                 >
-                  <div className="relative h-[300px] md:min-h-[400px] min-w-[550px]">
+                  <div
+                    className="relative h-[300px] md:h-[450px] lg:h-[500px] w-full md:w-[450px] lg:w-[550px]"
+                    style={{ zIndex: 100 }}
+                  >
                     <Image
                       src={service.imageSrc}
                       alt={service.imageAlt}
                       fill
-                      className="object-cover rounded-xl"
+                      className="object-contain rounded-xl"
                     />
                   </div>
                 </motion.div>

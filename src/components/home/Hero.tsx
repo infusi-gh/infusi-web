@@ -1,6 +1,7 @@
 "use client"
 
 import React from "react"
+import Link from "next/link"
 import { Button } from "../ui/button"
 import Image from "next/image"
 import { Avatar, AvatarImage } from "../ui/avatar"
@@ -27,28 +28,27 @@ function Hero() {
       >
         <Image src="/hero/vector-2.svg" alt="Background curve" fill />
       </motion.div>
-      <div className="section-padding w-full  flex  md:flex-row items-center md:justify-between justify-center  gap-10 px-6 sm:px-10 md:px-16 lg:px-24 z-10 ">
+      <div className="section-padding w-full flex items-center justify-center gap-10 px-6 sm:px-10 md:px-16 lg:px-24 z-10">
         {/* --- Text Section --- */}
-        <div className="space-y-6 text-center md:text-left max-w-[500px] w-full md:mt-44  ">
+        <div className="space-y-6 text-left w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-[726px]">
           <div className="relative w-full space-y-3">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="text-2xl sm:text-4xl lg:text-5xl font-bold leading-tight text-nowrap"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-[66px] font-medium leading-tight lg:leading-[73px]"
             >
-              Ideas to <span className="text-[#C3D060]">reality</span>,
-              tech-driven
+              Powerful solutions for Africa&apos;s digital future
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-              className="text-gray-300 text-sm md:text-base lg:text-lg mx-auto md:mx-0 leading-relaxed"
+              className="text-lg sm:text-xl md:text-2xl lg:text-[25px] font-light leading-relaxed lg:leading-[25px] text-gray-300"
             >
               We build mobile apps and web platforms that solve real problems
-              for Ghanaians — technology that&apos;s practical, powerful, and
+              for Ghanaians. Technology that&apos;s practical, powerful, and
               makes a difference.
             </motion.p>
           </div>
@@ -60,13 +60,16 @@ function Hero() {
             className="flex flex-col gap-6 mt-12 sm:mt-16"
           >
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-start">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 text-sm sm:text-base transition-colors">
-                  Start Your Project
+                <Button
+                  asChild
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 text-base h-auto transition-colors"
+                >
+                  <Link href="/contact">Start Your Project</Link>
                 </Button>
               </motion.div>
               <motion.div
@@ -74,16 +77,17 @@ function Hero() {
                 whileTap={{ scale: 0.95 }}
               >
                 <Button
+                  asChild
                   variant="outline"
-                  className="border-white text-white hover:bg-white/10 px-6 py-2 text-sm sm:text-base transition-colors"
+                  className="border-white text-white hover:bg-white/10 px-6 py-3 text-base h-auto transition-colors"
                 >
-                  Learn More
+                  <Link href="/solutions">See Our Work</Link>
                 </Button>
               </motion.div>
             </div>
 
             {/* Client Avatars */}
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 items-center justify-center md:justify-start pb-5">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 items-center justify-start pb-5">
               <motion.div
                 className="flex -space-x-2 *:data-[slot=avatar]:ring-background *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:grayscale"
                 initial="hidden"
@@ -127,25 +131,6 @@ function Hero() {
             </div>
           </motion.div>
         </div>
-
-        {/* --- Image Section --- */}
-        <motion.div
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          className="hidden md:block absolute md:right-[-250px] lg:right-0 xl:right-8 bottom-0 z-50"
-        >
-          <div className="relative md:w-[850px] lg:w-[1000px] xl:w-[1100px] scale-x-[-1]">
-            <Image
-              src="/hero/hero-image.png"
-              alt="Infusi LLC"
-              width={1100}
-              height={1100}
-              className="w-full h-auto object-contain"
-              priority
-            />
-          </div>
-        </motion.div>
       </div>
     </main>
   )

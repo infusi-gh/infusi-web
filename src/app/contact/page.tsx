@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
-import { ContactInfo, ContactCTA, ContactForm } from "@/components/contact"
-import { SectionSeparator, CTA } from "@/components/shared"
+import { ContactInfo, ContactForm } from "@/components/contact"
+import { CTA } from "@/components/shared"
 
 export const metadata: Metadata = {
   title: "Contact Us - Infusi LLC",
@@ -12,8 +12,6 @@ export default function ContactPage() {
   return (
     <>
       <ContactInfo />
-      <ContactCTA />
-      <SectionSeparator />
       <ContactForm />
       <CTA />
     </>

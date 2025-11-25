@@ -11,6 +11,20 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-satoshi)", "system-ui", "sans-serif"],
       },
+      fontSize: {
+        // Hero section typography
+        "hero-title": ["66px", { lineHeight: "73px", fontWeight: "500" }],
+        "hero-body": ["25px", { lineHeight: "100%", fontWeight: "300" }],
+
+        // Reusable typography scale
+        display: ["66px", { lineHeight: "73px", fontWeight: "500" }],
+        "heading-1": ["48px", { lineHeight: "56px", fontWeight: "500" }],
+        "heading-2": ["36px", { lineHeight: "44px", fontWeight: "500" }],
+        "heading-3": ["28px", { lineHeight: "36px", fontWeight: "500" }],
+        "body-lg": ["25px", { lineHeight: "100%", fontWeight: "300" }],
+        body: ["18px", { lineHeight: "150%", fontWeight: "400" }],
+        "body-sm": ["16px", { lineHeight: "150%", fontWeight: "400" }],
+      },
       colors: {
         border: "var(--border)",
         input: "var(--border)",

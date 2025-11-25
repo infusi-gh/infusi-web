@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-export default function ContactCTA() {
+export default function BusinessTransform() {
   return (
     <section className="bg-background py-12 sm:py-16 md:py-20 lg:py-24">
       <div className="max-w-7xl mx-auto section-padding">

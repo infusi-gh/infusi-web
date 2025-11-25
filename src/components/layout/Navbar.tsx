@@ -41,11 +41,10 @@ export function Navbar() {
 
   return (
     <nav className="absolute section-padding top-0 w-full bg-[#EBF2FF]/95 backdrop-blur-sm border-b border-[#27408E]/10 z-50">
-      <div className=" flex items-center justify-between  py-3">
-        {/* --- Logo Section --- */}
-        <div className="flex-[0.3]">
-          <Link href="/" className="flex items-center gap-2  ">
-            {/* Standard logo size: 32–40px tall */}
+      <div className="flex items-center justify-between py-3">
+        {/* --- Logo and Nav Links --- */}
+        <div className="flex items-center gap-8 lg:gap-12">
+          <Link href="/" className="flex items-center">
             <Image
               src="/logo.svg"
               alt="Infusi LLC"
@@ -54,11 +53,9 @@ export function Navbar() {
               className="object-contain"
             />
           </Link>
-        </div>
 
-        {/* --- Desktop Nav --- */}
-        <div className="hidden md:flex items-center w-full gap-8 flex-[0.7] justify-between">
-          <ul className="flex gap-10 text items-center">
+          {/* --- Desktop Nav Links --- */}
+          <ul className="hidden md:flex gap-6 lg:gap-8 items-center">
             {navItems.map(item => {
               const isActive = pathname === item.href
 
@@ -108,6 +105,10 @@ export function Navbar() {
               </DropdownMenu>
             </li>
           </ul>
+        </div>
+
+        {/* --- CTA Button --- */}
+        <div className="hidden md:block">
           <Button>Get Started</Button>
         </div>
 

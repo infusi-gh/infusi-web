@@ -6,7 +6,8 @@ import {
   DigitalGrowth,
   WorkWithUsCards,
   BlogSection,
-} from "@/components/shared"
+  BusinessTransform,
+} from "@/components/home"
 import { Services, Partners } from "@/components/service"
 import { motion } from "motion/react"
 
@@ -62,6 +63,7 @@ export default function Home() {
       <Services />
       <Partners />
       <DigitalGrowth />
+      <BusinessTransform />
       <BlogSection />
       <WorkWithUsCards />
     </>

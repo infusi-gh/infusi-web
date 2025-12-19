@@ -44,7 +44,7 @@ function Partners() {
         <div className="flex flex-col items-center gap-8 md:gap-12">
           {/* Top row - 4 logos */}
           <div className="grid grid-cols-2 items-center justify-items-center w-full max-w-4xl ">
-            {partnersData.slice(0, 4).map(partner => (
+            {/* {partnersData.slice(0, 4).map(partner => (
               <div
                 key={partner.name}
                 className="relative h-12 md:h-16  w-full flex items-center justify-center"
@@ -57,7 +57,7 @@ function Partners() {
                   sizes="(max-width: 768px) 50vw, 25vw"
                 />
               </div>
-            ))}
+            ))} */}
           </div>
           {/* Bottom row - 2 logos centered */}
           {/* <div className="grid grid-cols-2 gap-8 md:gap-12 items-center justify-items-center w-full max-w-md">

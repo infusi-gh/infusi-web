@@ -6,7 +6,7 @@ export default function BusinessTransform() {
       <div className="max-w-7xl mx-auto section-padding">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
           {/* Left side - Hand illustration */}
-          <div className="flex justify-center lg:justify-start order-2 lg:order-1">
+          <div className="flex justify-center lg:justify-start">
             <div className="relative w-full max-w-md lg:max-w-lg">
               <Image
                 src="/contact/hand.svg"

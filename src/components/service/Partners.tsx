@@ -6,8 +6,8 @@ const partnersData = [
   // { name: "Telecel", logo: "/partner/telecel.svg" },
   // { name: "Paystack", logo: "/partner/paystack.svg" },
   // { name: "Brif", logo: "/partner/brif.svg" },
-  { name: "Døltech", logo: "/partner/doltech.svg" },
-  { name: "Kweku Tech", logo: "/partner/kweku.svg" },
+  // { name: "Døltech", logo: "/partner/doltech.svg" },
+  // { name: "Kweku Tech", logo: "/partner/kweku.svg" },
 ]
 
 function Partners() {
